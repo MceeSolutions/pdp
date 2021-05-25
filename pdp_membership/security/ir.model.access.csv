@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lga_ward,lga.ward,model_lga_ward,base.group_user,1,1,1,1
+access_state_lga,state.lga,model_state_lga,base.group_user,1,1,1,1

@@ -1,0 +1,31 @@
+<odoo>
+  <data>
+
+    <record model="ir.actions.act_window" id="rc_state_lga_action_window">
+      <field name="name">LGA</field>
+      <field name="res_model">state.lga</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                let's create a new Lga.
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="rc_lga_ward_action_window">
+      <field name="name">Ward</field>
+      <field name="res_model">lga.ward</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                let's create a new Lga.
+            </p>
+        </field>
+    </record>
+
+  </data>
+</odoo>

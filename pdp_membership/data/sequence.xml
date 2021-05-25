@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="seq_lga_ward" model="ir.sequence">
+            <field name="name">LGA WARD</field>
+            <field name="code">lga.ward</field>
+            <!-- <field name="prefix">CRQ</field> -->
+            <field name="padding">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>
