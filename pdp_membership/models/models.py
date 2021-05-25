@@ -6,9 +6,9 @@ class Partner(models.Model):
     _inherit = 'res.partner'
 
     code = fields.Char(string='code', readonly=True, copy=False, default='New')
-    ward_id = fields.Many2one(comodel_name='lga.ward', string='Ward', required=True)
-    state_id = fields.Many2one(comodel_name='res.country.state', string='State', required=True)
-    lga_id = fields.Many2one(comodel_name='state.lga', string='Lga', required=True)
+    ward_id = fields.Many2one(comodel_name='lga.ward', string='Ward')
+    state_id = fields.Many2one(comodel_name='res.country.state', string='State')
+    lga_id = fields.Many2one(comodel_name='state.lga', string='Lga')
 
     def generate_code(self):
         self.code =  self.ward_id.lga_id.state_id.code + '/' + self.ward_id.lga_id.code + '/' + self.ward_id.code + '/' + self.env['ir.sequence'].next_by_code('lga.ward') or '/'
