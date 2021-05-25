@@ -7,6 +7,8 @@ class Partner(models.Model):
 
     code = fields.Char(string='code', readonly=True, copy=False, default='New')
     ward_id = fields.Many2one(comodel_name='lga.ward', string='Ward', required=True)
+    state_id = fields.Many2one(comodel_name='res.country.state', string='State', required=True)
+    lga_id = fields.Many2one(comodel_name='state.lga', string='Lga', required=True)
 
     def generate_code(self):
         self.code =  self.ward_id.lga_id.state_id.code + '/' + self.ward_id.lga_id.code + '/' + self.ward_id.code + '/' + self.env['ir.sequence'].next_by_code('lga.ward') or '/'
@@ -17,19 +19,26 @@ class Partner(models.Model):
         res.generate_code()
         return res 
 
+    @api.onchange('ward_id')
+    def ward_id_change(self):
+        if self.ward_id:
+            self.lga_id = self.ward_id.lga_id
+            self.state_id = self.ward_id.lga_id.state_id
+
+
 class LGA(models.Model):
     _name = 'state.lga'
 
-    name = fields.Char(string='Name')
-    state_id = fields.Many2one(comodel_name='res.country.state', string='Name')
-    code = fields.Char(string='Code')
+    name = fields.Char(string='Name', required=True)
+    state_id = fields.Many2one(comodel_name='res.country.state', string='State')
+    code = fields.Char(string='Code', required=True)
 
-class LGA(models.Model):
+class Ward(models.Model):
     _name = 'lga.ward'
 
-    name = fields.Char(string='Name')
-    lga_id = fields.Many2one(comodel_name='state.lga', string='Name')
-    code = fields.Char(string='Code')
+    name = fields.Char(string='Name'), required=True
+    lga_id = fields.Many2one(comodel_name='state.lga', string='Lga')
+    code = fields.Char(string='Code', required=True)
 
 
 # class pdp_membership(models.Model):
