@@ -11,7 +11,7 @@ class Partner(models.Model):
     lga_id = fields.Many2one(comodel_name='state.lga', string='Lga')
 
     def generate_code(self):
-        self.code =  self.ward_id.lga_id.state_id.code + '/' + self.ward_id.lga_id.code + '/' + self.ward_id.code + '/' + self.env['ir.sequence'].next_by_code('lga.ward') or '/'
+        self.code =  self.state_id.code + '/' + self.lga_id.code + '/' + self.ward_id.code + '/' + self.env['ir.sequence'].next_by_code('lga.ward') or '/'
 
     @api.model
     def create(self, vals):
