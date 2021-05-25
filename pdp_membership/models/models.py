@@ -28,6 +28,7 @@ class Partner(models.Model):
 
 class LGA(models.Model):
     _name = 'state.lga'
+    _description = 'LGA'
 
     name = fields.Char(string='Name', required=True)
     state_id = fields.Many2one(comodel_name='res.country.state', string='State')
@@ -35,6 +36,7 @@ class LGA(models.Model):
 
 class Ward(models.Model):
     _name = 'lga.ward'
+    _description = 'Ward'
 
     name = fields.Char(string='Name', required=True)
     lga_id = fields.Many2one(comodel_name='state.lga', string='Lga')
