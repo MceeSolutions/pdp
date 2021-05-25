@@ -36,7 +36,7 @@ class LGA(models.Model):
 class Ward(models.Model):
     _name = 'lga.ward'
 
-    name = fields.Char(string='Name'), required=True
+    name = fields.Char(string='Name', required=True)
     lga_id = fields.Many2one(comodel_name='state.lga', string='Lga')
     code = fields.Char(string='Code', required=True)
 
