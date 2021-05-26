@@ -2,7 +2,7 @@
 <odoo>
 
     <template id="report_id_cards">
-       <t t-call="web.html_container">
+       <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="doc">
                 <div class="col-md-6">
                     <table style="width:243pt; height:153pt; border: 1pt solid black; border-collapse:separate; border-radius:8pt; margin:5pt">
@@ -10,7 +10,7 @@
                             <table style="width:77pt; height:150pt">
                                 <tr style="height:30%">
                                     <td align="center" valign="center">
-                                        <img src='/pdp_membership/static/src/img/pdp.png' style="max-height:45pt;max-width:90%"/>
+                                        <img class="img img-responsive" src='/pdp_membership/static/src/img/pdp.png' style="max-height:45pt;max-width:90%"/>
                                     </td>
                                 </tr>
                                 <tr style="height:70%;">
