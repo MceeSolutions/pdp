@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+
+        <report
+            id="report_id_card"
+            string="ID Card"
+            model="res.partner"
+            report_type="qweb-pdf"
+            name="pdp_membership.report_idcard"
+            file="pdp_membership.report_idcard"
+            menu="True"/>
+
+  </data>
+</odoo>

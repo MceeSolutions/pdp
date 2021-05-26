@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_id_cards">
+       <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <!-- <div class="page" t-attf-style="background-image:url('/pdp_membership/static/src/img/pdp.png'); background-size:95mm 82mm; width:95mm; height:82mm;">
+                    <h4>IDENTITY CARD</h4>
+                    <span t-field="doc.image_1920" t-options-widget="&quot;image&quot;"/> <br/>
+                    <b><span>Name:</span></b> <t t-esc="doc.name"/> <br/>
+                    <b><span>Code:</span></b> <t t-esc="doc.code"/>
+                    <img class="img img-responsive" src='/pdp_membership/static/src/img/pdp.png'/>
+                </div> -->
+                <!-- <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-6" data-type="char" data-name="Field">
+                                    <label class="s_website_form_label " style="width: 200px" for="name">
+                                        <span class="s_website_form_label_content">Name</span>
+                                        <span class="s_website_form_mark" style="color:Red;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control s_website_form_input" name="name" required="1" t-att-value="default_values.get('name', '')" placeholder="" id="name"/>
+                                </div> -->
+                <div class="col-4 col-lg-4">
+                    <img class="img img-responsive pull-right" src='/pdp_membership/static/src/img/pdp.png' style="width: 100px"/>
+                    <span t-field="doc.image_1920" t-options-widget="&quot;image&quot;"/> <br/>
+                    <b><span>Name:</span></b> <t t-esc="doc.name"/> <br/>
+                    <b><span>Code:</span></b> <t t-esc="doc.code"/>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_idcard">
+       <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="pdp_membership.report_id_cards"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>
