@@ -16,7 +16,7 @@ class Partner(models.Model):
     @api.model
     def create(self, vals):
         res = super(Partner, self).create(vals)
-        res.generate_code()
+        #res.generate_code()
         return res 
 
     @api.onchange('ward_id')
