@@ -21,7 +21,7 @@ class Partner(models.Model):
     
     @api.onchange('state_id','lga_id','ward_id')
     def onchange_generate_code_params(self):
-        self.generate_code()
+        self.code = self.generate_code()
 
     @api.onchange('ward_id')
     def ward_id_change(self):
